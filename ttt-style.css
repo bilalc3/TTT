@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+
+:root{
+  --primary: #0a253b;
+  --secondary:#6e7889;
+  --dark: #393b45;
+  --light: #f8f8f8;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+/* */
+
+.board{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 50%;
+  height: 50%;
+}
+
+.board-square{
+  width: 100%; 
+  position: relative;
+
+  border: 0.2em solid var(--dark);
+  cursor: pointer;
+  box-sizing: border-box;
+  text-overflow: clip;
+}
+
+@keyframes appear{
+  0%{ opacity: 0; transform: scale(2); }
+  25%{ opacity: 0.25; transform: scale(1.5); }
+  50%{ opacity: 0.5; transform: scale(0.7); }
+  100%{ opacity: 1; transform: scale(1); }
+}
+
+.board-square:hover{
+  box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.4);
+}
+
+
+.board-square .text{
+  position:  absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-bottom: 2vw;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 6vw;
+
+  animation: appear 0.2s ease forwards;
+}
+
+
+.board-square:nth-child(1), 
+.board-square:nth-child(2),
+.board-square:nth-child(3)
+{
+    border-top: 0;
+}
+
+.board-square:nth-child(7), 
+.board-square:nth-child(8),
+.board-square:nth-child(9)
+{
+    border-bottom: 0;
+}
+
+.board-square:nth-child(1), 
+.board-square:nth-child(4),
+.board-square:nth-child(7)
+{
+    border-left: 0;
+}
+
+.board-square:nth-child(3), 
+.board-square:nth-child(6),
+.board-square:nth-child(9)
+{
+    border-right: 0;
+}
+
+
+.container {
+  flex-direction: column;
+}
+
+.winner{
+  font-family: Roboto;
+  font-size: 2rem;
+  color:#0a253b; 
+  font-weight: 300;
+}
